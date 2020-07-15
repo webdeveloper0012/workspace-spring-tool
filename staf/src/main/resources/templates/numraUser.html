@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Stafi</title>
+    <meta charset="UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+	<script type="text/javascript" th:inline="javascript" src="../static/js/checkbox.js" th:src="@{/js/checkbox.js}"></script>
+	
+</head>
+<body onload="show('all')">
+	
+	<form action="/logout" style="float: right;">
+		<button type="submit" class="logout-button button3">Dil</button>
+	</form>
+	
+	<form action="/homepageUser" style="float: right;">
+		<button type="submit" class="homepage-button button2">Homepage</button>
+	</form>
+	
+	<h1 class="staf-h" style="width: 50%; text-align: right;">Rezultati</h1>
+	
+	<div class="div-checkbox">
+		<input type="checkbox" class="css-checkbox" id="adres" 		checked="checked"	onclick="show(this.id)" value="Adresa e shtepise">	<label class="css-label" id="adresLabel">		Adresa e shtepise</label>
+		<input type="checkbox" class="css-checkbox" id="qyteti" 	checked="checked"	onclick="show(this.id)" value="Qyteti">				<label class="css-label" id="qytetiLabel">		Qyteti</label>
+		<input type="checkbox" class="css-checkbox" id="godine" 	checked="checked"	onclick="show(this.id)" value="Godina">				<label class="css-label" id="godineLabel">		Godina</label>
+		<input type="checkbox" class="css-checkbox" id="zyra" 		checked="checked"	onclick="show(this.id)" value="Zyra">				<label class="css-label" id="zyraLabel">		Zyra</label>
+		<input type="checkbox" class="css-checkbox" id="drlarte" 	checked="checked"	onclick="show(this.id)" value="Dr. e Larte">		<label class="css-label" id="drlarteLabel">		Dr. i Larte</label>
+		<input type="checkbox" class="css-checkbox" id="depart" 	checked="checked"	onclick="show(this.id)" value="Departamenti">		<label class="css-label" id="departLabel">		Departamenti</label>
+		<input type="checkbox" class="css-checkbox" id="drejtori" 	checked="checked"	onclick="show(this.id)" value="Drejtoria">			<label class="css-label" id="drejtoriLabel">	Drejtoria</label>
+		<input type="checkbox" class="css-checkbox" id="dega" 		checked="checked"	onclick="show(this.id)" value="Dega">				<label class="css-label" id="degaLabel">		Dega</label>
+		<input type="checkbox" class="css-checkbox" id="pozicioni" 	checked="checked"	onclick="show(this.id)" value="Pozicioni">			<label class="css-label" id="pozicioniLabel">	Pozicioni</label>
+		<input type="checkbox" class="css-checkbox" id="nrzyre" 	checked="checked"	onclick="show(this.id)" value="Numer zyre">			<label class="css-label" id="nrzyreLabel">		Numer zyre</label>
+		<input type="checkbox" class="css-checkbox" id="nr6sh" 		checked="checked"	onclick="show(this.id)" value="Numer 6 shifra">		<label class="css-label" id="nr6shLabel">		Numer 6 shifra</label>
+		<input type="checkbox" class="css-checkbox" id="nr41sh" 	checked="checked"	onclick="show(this.id)" value="Numer 41-sh">		<label class="css-label" id="nr41shLabel">		Numer 41-sh</label>
+		<input type="checkbox" class="css-checkbox" id="nrpers" 	checked="checked"	onclick="show(this.id)" value="Numer personal">		<label class="css-label" id="nrpersLabel">		Numer personal</label>
+		<input type="checkbox" class="css-checkbox" id="nrvoip" 	checked="checked"	onclick="show(this.id)" value="Numer VoIP">			<label class="css-label" id="nrvoipLabel">		Numer VoIP</label>
+    </div>
+    
+	<form action="#" th:action="@{/numraUser}" method="post">
+	
+	    <table class="staf">
+	        <thead>
+	            <tr>
+	                <th>Emri</th>
+	                <th>Mbiemri</th>
+	                <th class="adresCol">		Adresa e shtepise</th>
+	                <th class="qytetiCol">		Qyteti</th>
+	                <th class="godineCol">		Godina</th>
+	                <th class="zyraCol">		Zyra</th>
+	                <th class="drlarteCol">		Dr. i Larte</th>
+	                <th class="departCol">		Departamenti</th>
+	                <th class="drejtoriCol">	Drejtoria</th>
+	                <th class="degaCol">		Dega</th>
+	                <th class="pozicioniCol">	Pozicioni</th>
+	                <th class="nrzyreCol">		Numer zyre</th>
+	                <th class="nr6shCol">		Numer 6 shifra</th>
+	                <th class="nr41shCol">		Numer 41-sh</th>
+	                <th class="nrpersCol">		Numer personal</th>
+	                <th class="nrvoipCol">		Numer VoIP</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	        <tr th:if="${stafi.empty}">
+            	<td colspan="16"> Nuk ka te dhena. </td>
+        	</tr>
+        	<tr th:each="_staf : ${stafi}">
+        		<td th:text="${_staf.emri}"> </td>
+           		<td th:text="${_staf.mbiemri}"> </td>
+           		<td th:text="${_staf.addShtepise}" 		class="adresCol"></td>
+           		<td th:text="${_staf.qyteti}" 			class="qytetiCol"></td>
+           		<td th:text="${_staf.godina}" 			class="godineCol"></td>
+           		<td th:text="${_staf.zyra}" 			class="zyraCol"></td>
+           		<td th:text="${_staf.drLarte}" 			class="drlarteCol"></td>
+           		<td th:text="${_staf.departamenti}" 	class="departCol"></td>
+           		<td th:text="${_staf.drejtoria}" 		class="drejtoriCol"></td>
+           		<td th:text="${_staf.dega}" 			class="degaCol"></td>
+           		<td th:text="${_staf.pozicioni}" 		class="pozicioniCol"></td>
+           		<td th:utext="${_staf.nrZyre1 + '<br />'  + _staf.nrZyre2}" 		class="nrzyreCol"></td>
+           		<td th:utext="${_staf.nr6Shifra1 + '<br />'  + _staf.nr6Shifra2}" 	class="nr6shCol"></td>
+           		<td th:utext="${_staf.nr41sh1 + '<br />'  + _staf.nr41sh2}" 		class="nr41shCol"></td>
+           		<td th:utext="${_staf.nrPersonal1 + '<br />'  + _staf.nrPersonal2}" class="nrpersCol"></td>
+				<td th:utext="${_staf.nrVoIP1 + '<br />'  + _staf.nrVoIP2}" 		class="nrvoipCol"></td>
+        	</tr>
+	    	</tbody>
+		</table>
+	</form>
+	
+</body>
+</html>

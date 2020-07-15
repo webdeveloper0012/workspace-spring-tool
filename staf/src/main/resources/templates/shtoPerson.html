@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Shto</title>
+    <meta charset="UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+	<script type="text/javascript" th:inline="javascript" src="../static/js/shto.js" th:src="@{/js/shto.js}"></script>
+</head>
+<body>
+	<h1 class="staf-h">Regjistro!</h1>
+	
+	<div class="shto">
+		<form action="#" th:action="@{/shtoPerson}" method="post">
+			
+			<label th:text="${info}" th:unless="${info == ''}" style="color: red;"></label>
+			<br />
+			<label>Emri</label>
+			<br />
+			<input type="text" name="emri">
+			<br />
+			<label>Mbiemri</label>
+			<br />
+			<input type="text" name="mbiemri">
+			<br />
+			<label>Adresa e shtepise</label>
+			<br />
+			<input type="text" name="addShtepise">
+			<br />
+			<label>Qyteti</label>
+			<br />
+			<select name="qyteti">
+
+	       	</select>
+			<br />
+			<label>Godina</label>
+			<br />
+			<input type="text" name="godina">
+			<br />
+			<label>Zyra</label>
+			<br />
+			<input type="text" name="zyra">
+			<br />
+			<label>Drejtues i Larte</label>
+			<br />
+			<select name="drLarte" id="drLarte_id" onchange="departamentet()">
+				<option  value="">	</option>
+
+			</select>
+			<br />
+			<label>Departamenti</label>
+			<br />
+			<select name="departamenti" id="departamenti_id" onchange="drejtorite()">
+				<option  value="">	</option>
+				</select>
+			<br />
+			<label>Drejtoria</label>
+			<br />
+			<select name="drejtoria" id="drejtoria_id" onchange="deget()">
+				<option  value="">	</option>
+				
+			</select>
+			<br />
+			<label>Dega</label>
+			<br />
+			<select name="dega" id="dega_id">
+				<option  value="">	</option>
+			</select>
+			<br />
+			<label>Pozicioni</label>
+			<br />
+			<input type="text" name="pozicioni">
+			<br />
+			<label>Numer zyre</label>
+			<br />
+			<input type="text" name="nrZyre1" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+			<br />
+			<input type="text" name="nrZyre2" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+			<br />
+			<label>Numer 6 shifra</label>
+			<br />
+			<input type="text" name="nr6Shifra1" maxlength="6" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+			<br />
+			<input type="text" name="nr6Shifra2" maxlength="6" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+			<br />
+			<label>Numer 41-sh</label>
+			<br />
+			<input type="text" name="nr41sh1" maxlength="15" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="06941x / 06920x">
+			<br />
+			<input type="text" name="nr41sh2" maxlength="15" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="06941x / 06920x">
+			<br />
+			<label>Numer personal</label>
+			<br />
+			<input type="text" name="nrPersonal1" maxlength="20" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="067x / 068x / 069x">
+			<br />
+			<input type="text" name="nrPersonal2" maxlength="20" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="067x / 068x / 069x">
+			<br />
+			<label>Numer VoIP</label>
+			<br />
+			<input type="text" name="nrVoIP1" maxlength="5" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+			<br />
+			<input type="text" name="nrVoIP2" maxlength="5" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+			<br />
+			<button type="submit" class="button2">Regjistro</button>
+		</form>
+	</div>
+		
+	<form action="/homepageAdmin" class="anullo-form">
+		<button type="submit" class="anullo-button button3">Anullo</button>
+	</form>
+	
+</body>
+</html>

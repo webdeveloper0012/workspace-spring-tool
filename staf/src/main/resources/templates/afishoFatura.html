@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Fatura</title>
+    <meta charset="UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+	
+</head>
+<body>
+	<h1 class="staf-h">Faturat</h1>
+	<h2 class="staf-h"><label th:text="${drejtoria}"></label></h2>
+	
+	<form action="#" th:action="@{/afishoFaturat}" method="post">
+	
+	    <table class="staf">
+	        <thead>
+	            <tr>
+	                <th>Emri</th>
+	                <th>Mbiemri</th>
+	                <th>Pozicioni</th>
+	                <th>Numri</th>
+	                <th>Vlera</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	        <tr th:if="${faturat.empty}">
+            	<td colspan="5"> Nuk ka te dhena </td>
+        	</tr>
+        	<tr th:each="_fature : ${faturat}">
+        		<td th:text="${_fature[0]}"></td>
+           		<td th:text="${_fature[1]}"></td>
+           		<td th:text="${_fature[2]}"></td>
+           		<td th:text="${_fature[3]}"></td>
+           		<td th:text="${_fature[4]}"></td>
+        	</tr>
+	    	</tbody>
+		</table>
+	</form>
+	
+	<form action="/kerkoFatura" class="fatura-form">
+		<button type="submit" class="fatura-button button2">Faturat</button>
+	</form>
+	
+	<form action="/homepageAdmin" class="homepage-form">
+		<button type="submit" class="homepage-button button2">Homepage</button>
+	</form>
+	
+</body>
+</html>

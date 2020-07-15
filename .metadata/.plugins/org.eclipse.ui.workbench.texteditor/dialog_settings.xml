@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="true"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="drejtori"/>
+		<list key="findhistory">
+			<item value="drejtori"/>
+			<item value="findByUsername"/>
+			<item value="stafi.get(0)"/>
+			<item value="getDega"/>
+			<item value="dega"/>
+			<item value=");"/>
+			<item value="departament"/>
+			<item value="_staf"/>
+			<item value="&quot;&quot;, "/>
+			<item value="&quot; &quot;, "/>
+			<item value="search"/>
+			<item value="error"/>
+			<item value="homepageAdmin"/>
+			<item value="homepageUser"/>
+			<item value="{"/>
+		</list>
+		<list key="replacehistory">
+			<item value="editPerson.getDrejtoria()"/>
+			<item value="editPerson"/>
+			<item value="getDrejtoria"/>
+			<item value="drejtori"/>
+			<item value="};"/>
+			<item value="editPerson.getDega()"/>
+			<item value="editPerson.getDepartamenti()"/>
+			<item value="_person"/>
+			<item value=""/>
+			<item value="indexOf"/>
+			<item value="info"/>
+			<item value="_fature"/>
+			<item value="log.info"/>
+			<item value="css-checkbox"/>
+			<item value="stafi.get(0)"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1392"/>
+		<item key="DIALOG_Y_ORIGIN" value="289"/>
+		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_HEIGHT" value="403"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

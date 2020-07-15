@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <title>Homepage</title>
+    <meta charset="UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+	<form action="/logout" class="logout-form">
+		<button type="submit" class="logout-button button3">Dil</button>
+	</form>
+	
+	<div class="search-form">
+	
+		<h1 style="color: black;">Kerko sipas:</h1>
+		
+       	<form action="#" th:action="@{/homepageUser}" method="post">
+       		
+			 <select name="option" class="select-value">
+	       		<option  value="emri">				Emri</option>
+	       		<option  value="mbiemri">			Mbiemri</option>
+	       		<option  value="qyteti">			Qyteti</option>
+	       		<option  value="godina">			Godina</option>
+	       		<option  value="zyra">				Zyra</option>
+	       		<option  value="departamenti">		Departamenti</option>
+	       		<option  value="drejtoria">			Drejtoria</option>
+	       		<option  value="dega">				Dega</option>
+	       		<option  value="pozicioni">			Pozicioni</option>
+	       		<option  value="nrZyre">			Numer zyre</option>
+	       		<option  value="nr6Shifra">			Numer 6 shifra</option>
+	       		<option  value="nr41">				Numer 41-sh</option>
+	       		<option  value="nrPersonal">		Numer personal</option>
+	       		<option  value="nrVoIP">			Numer VoIP</option>
+	       </select>
+	       
+	       <input type="text" name="txt" placeholder="Kerko ketu..." class="search-text">
+			
+	       <button type="submit" class="search-button button2">Kerko</button>
+	       
+	       <br />
+	       <label th:text="${info}" th:unless="${info == ''}" style="color: red;"></label>
+       	</form>
+       		
+	</div>
+	
+</body>
+</html>

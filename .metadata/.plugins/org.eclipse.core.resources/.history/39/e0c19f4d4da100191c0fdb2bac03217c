@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Stafi</title>
+    <meta charset="UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+	
+	<script type="text/javascript">
+		function show(id)
+		{
+			if(id == 'all')
+			{
+				var idCol = document.querySelectorAll("[class*=Col]");
+				for (var i = 0; i < idCol.length; i++) 
+		  		{
+		  			idCol[i].style.display = "none";
+	            }
+			}
+			else 
+			{
+				var checkbox = document.getElementById(id);
+				var idCol = document.getElementsByClassName(id + "Col");
+			
+			  	if (checkbox.checked == true) 
+			  	{
+			  		document.getElementById(id + "Label").style.color = "red";
+			  		
+			  		for (var i = 0; i < idCol.length; i++) 
+			  		{
+			  			idCol[i].style.display = "table-cell";
+		            }
+			  	} 
+			  	else 
+			  	{
+			  		document.getElementById(id + "Label").style.color = "green";
+			  		
+			  		for (var i = 0; i < idCol.length; i++) 
+			  		{
+			  			idCol[i].style.display = "none";
+		            }
+			  	}
+			}
+		}
+	</script>
+	
+	<script>
+		function myFunction(url) 
+		{
+		  var del = confirm("A doni ta fshini?");
+		  if(del == true)
+			{
+			  return th:href="url";
+			}
+			
+		  else return false;
+		}
+	</script>
+</head>
+<body onload="show('all')">
+	<h1 class="staf-h">Stafi</h1>
+	
+	<div class="div-checkbox">
+		<input type="checkbox" class="css-checkbox" id="adres" 		onclick="show(this.id)" value="Adresa e shtepise">	<label class="css-label" id="adresLabel">Addresa e shtepise</label>
+		<input type="checkbox" class="css-checkbox" id="godine" 	onclick="show(this.id)" value="Godina">				<label class="css-label" id="godineLabel">Godina</label>
+		<input type="checkbox" class="css-checkbox" id="zyra" 		onclick="show(this.id)" value="Zyra">				<label class="css-label" id="zyraLabel">Zyra</label>
+		<input type="checkbox" class="css-checkbox" id="drejtori" 	onclick="show(this.id)" value="Drejtoria">			<label class="css-label" id="drejtoriLabel">Drejtoria</label>
+		<input type="checkbox" class="css-checkbox" id="dega" 		onclick="show(this.id)" value="Dega">				<label class="css-label" id="degaLabel">Dega</label>
+		<input type="checkbox" class="css-checkbox" id="pozicioni" 	onclick="show(this.id)" value="Pozicioni">			<label class="css-label" id="pozicioniLabel">Pozicioni</label>
+		<input type="checkbox" class="css-checkbox" id="nrzyre" 	onclick="show(this.id)" value="Nr tel zyre">		<label class="css-label" id="nrzyreLabel">Nr tel zyre</label>
+		<input type="checkbox" class="css-checkbox" id="nr6sh" 		onclick="show(this.id)" value="Nr tel 6 shifra">	<label class="css-label" id="nr6shLabel">Nr tel 6 shifra</label>
+		<input type="checkbox" class="css-checkbox" id="nr41sh" 	onclick="show(this.id)" value="Nr tel 41">			<label class="css-label" id="nr41shLabel">Nr tel 41</label>
+		<input type="checkbox" class="css-checkbox" id="nrpers" 	onclick="show(this.id)" value="Nr tel personal">	<label class="css-label" id="nrpersLabel">Nr tel personal</label>
+    </div>
+    
+	<form action="#" th:action="@{/afisho}" method="post">
+	
+	    <table class="staf">
+	        <thead>
+	            <tr>
+	                <th>Emri</th>
+	                <th>Mbiemri</th>
+	                <th class="adresCol">Adresa e shtepise</th>
+	                <th class="godineCol">Godina</th>
+	                <th class="zyraCol">Zyra</th>
+	                <th class="drejtoriCol">Drejtoria</th>
+	                <th class="degaCol">Dega</th>
+	                <th class="pozicioniCol">Pozicioni</th>
+	                <th class="nrzyreCol">Nr tel zyre</th>
+	                <th class="nr6shCol">Nr tel 6 shifra</th>
+	                <th class="nr41shCol">Nr tel 41</th>
+	                <th class="nrpersCol">Nr tel personal</th>
+	                <th>Veprime</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	        <tr th:if="${stafi.empty}">
+            	<td colspan="15"> Nuk ka te dhena </td>
+        	</tr>
+        	<tr th:each="_staf : ${stafi}">
+        		<td th:text="${_staf.emri}"> </td>
+           		<td th:text="${_staf.mbiemri}"> </td>
+           		<td th:text="${_staf.addShtepise}" class="adresCol"></td>
+           		<td th:text="${_staf.godina}" class="godineCol"></td>
+           		<td th:text="${_staf.dhoma}" class="zyraCol"></td>
+           		<td th:text="${_staf.drejtoria}" class="drejtoriCol"></td>
+           		<td th:text="${_staf.dega}" class="degaCol"></td>
+           		<td th:text="${_staf.pozicioni}" class="pozicioniCol"></td>
+           		<td th:utext="${_staf.nrZyre1 + '<br />'  + _staf.nrZyre2}" class="nrzyreCol"></td>
+           		<td th:utext="${_staf.nr6Shifra1 + '<br />'  + _staf.nr6Shifra2}" class="nr6shCol"></td>
+           		<td th:utext="${_staf.nr41sh1 + '<br />'  + _staf.nr41sh2}" class="nr41shCol"></td>
+           		<td th:utext="${_staf.nrPersonal1 + '<br />'  + _staf.nrPersonal2}" class="nrpersCol"></td>
+
+				<td>
+					<a th:if="${role == 'ADMIN' or _staf.id == idLogin}" th:href="@{/edit/{id}(id=${_staf.id})}">Edit</a>
+					<a th:if="${role == 'ADMIN'}" th:if="myFunction('@{/delete/{id}(id=${_staf.id})}')" ? th:href="@{/delete/{id}(id=${_staf.id})}" : ''>Delete</a>
+                  	</td>
+        	</tr>
+	    	</tbody>
+		</table>
+	</form>
+	
+	<form action="/homepage" class="homepage-form">
+		<button type="submit" class="homepage-button">Homepage</button>
+	</form>
+	
+	<form action="/logout" class="logout-form">
+		<button type="submit" class="logout-button">Dil</button>
+	</form>
+	
+</body>
+</html>

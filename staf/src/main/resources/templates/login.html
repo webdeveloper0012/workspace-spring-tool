@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="https://www.thymeleaf.org" 
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<h1 class="staf-h">MIRE SE VINI NE NUMRATORIN TELEFONIK!</h1>
+		
+	<h1 class="staf-h" style="margin-top: 3%; text-align: center;">Hyr!</h1>
+	
+	<div class="login">
+	
+		<form action="#" th:action="@{/login}" method="post">
+			
+			<label>Username</label>
+			<br />
+			<input type="text" name="username">
+			<br />
+			<label>Password</label>
+			<br />
+			<input type="password" name="password">
+			<br />
+			<label th:text="${info}" th:unless="${info == ''}" style="color: red;"></label>
+			<br /><br />
+			
+			<button type="submit" class="button2">Login</button>
+		</form>
+		
+	</div>
+	
+</body>
+</html>

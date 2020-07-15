@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <title>Fatura</title>
+    <meta charset="UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	
+	<form action="/logout" style="float: right;">
+		<button type="submit" class="logout-button button3">Dil</button>
+	</form>
+	
+	<form action="/homepageAdmin" style="float: right;">
+		<button type="submit" class="homepage-button button2">Homepage</button>
+	</form>
+	
+	<h1 class="staf-h">Kerko Faturat</h1>
+	
+	<div class="shto">
+		<form action="#" th:action="@{/kerkoFatura}" method="post">
+		
+			<label>Muaji</label>
+			<br />
+			<input type="text" name="muaji" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+			<br />
+			<label>Viti</label>
+			<br />
+			<input type="text" name="viti" maxlength="4" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+			<br />
+			<label>Drejtoria</label>
+			<br />
+			<select name="drejtoria" >
+				<option  value=""> </option>
+				<option  value="Buxheti">Buxheti</option>
+			</select>
+			<br />
+			<button type="submit" class="search-button button2">Kerko</button>
+			<br>
+			<label th:text="${info}" th:unless="${info == ''}" style="color: red;"></label>
+		</form>
+	</div>
+	
+	<form action="/uploadFatura" class="fatura-form" style="margin-left: 35%;">
+		<button type="submit" class="fatura-button button1">Upload</button>
+	</form>
+	
+</body>
+</html>

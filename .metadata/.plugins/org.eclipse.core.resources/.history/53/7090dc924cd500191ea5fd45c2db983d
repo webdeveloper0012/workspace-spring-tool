@@ -1,0 +1,30 @@
+package shish.stafi;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class StafApplication 
+{
+//	public static void main(String[] args) 
+//	{
+//		
+//		String s = null;
+//		System.out.println(s);
+// 		
+//		SpringApplication.run(StafApplication.class, args);
+//	}
+	
+	public static void main(String[] args) throws ParseException {
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyy G");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd G");
+		Date d1 = sdf1.parse("28/02/2020 AD");
+		String d2 = sdf2.format(d1);
+		System.out.println(d1);
+		System.out.println(d2);
+	}
+}

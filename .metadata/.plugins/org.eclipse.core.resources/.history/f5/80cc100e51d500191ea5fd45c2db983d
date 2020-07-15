@@ -1,0 +1,32 @@
+package shish.stafi;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class StafApplication 
+{
+//	public static void main(String[] args) 
+//	{
+//		
+//		String s = null;
+//		System.out.println(s);
+// 		
+//		SpringApplication.run(StafApplication.class, args);
+//	}
+	
+	public static void main(String[] args) throws ParseException {
+Long l = new Long(0);
+System.out.println(l.equals(0));
+Double d = new Double(0);
+System.out.println(d.equals(0));
+Float f = new Float(0);
+System.out.println(f.equals(0));
+String s = new String("0");
+System.out.println(s.equals("0"));
+	}
+}

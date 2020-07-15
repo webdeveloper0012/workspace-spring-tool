@@ -1,0 +1,28 @@
+package shish.stafi;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class StafApplication 
+{
+//	public static void main(String[] args) 
+//	{
+//		
+//		String s = null;
+//		System.out.println(s);
+// 		
+//		SpringApplication.run(StafApplication.class, args);
+//	}
+	
+	public static void main(String[] args) {
+		foo(null);
+	}
+	public static void foo(Object o) {
+		System.out.println("Object impl");
+	}
+	public static void foo(String s) {
+		System.out.println("String impl");
+	}
+
+}

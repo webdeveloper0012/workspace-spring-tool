@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <title>Upload</title>
+    <meta charset="UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	
+	<form action="/kerkoFatura" style="float: right;">
+		<button type="submit" class="anullo-button button3">Anullo</button>
+	</form>
+	
+	<form action="/homepageAdmin" style="float: right;">
+		<button type="submit" class="homepage-button button1">Homepage</button>
+	</form>
+	
+	<h1 class="staf-h">Ngarko te dhenat</h1>
+	
+	<div class="shto" style="margin-top: 5%">
+		<form action="#" th:action="@{/uploadFatura}" enctype="multipart/form-data" method="post">
+		
+			<label>File</label>
+			<br />
+			<input type="file" name="file">
+			<br />
+			<button type="submit" class="search-button button2">Upload</button>
+			<br />
+			<label th:text="${info}" th:unless="${info == ''}" style="color: red;"></label>
+		</form>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,64 @@
+
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface StafRepository extends CrudRepository<Staf, String> 
+{
+	
+	@Query("Select s From Staf s Where id = ?1")
+	ArrayList<Staf> findById(BigInteger id);
+	
+	@Query("Select s From Staf s Where emri like %?1% And mbiemri like %?2%")
+	ArrayList<Staf> findByEmriAndMbiemri(String emri, String mbiemri);
+	
+	@Query("Select s From Staf s Where emri like %?1%")
+	ArrayList<Staf> findByEmri(String emri);
+	
+	@Query("Select s From Staf s Where mbiemri like %?1%")
+	ArrayList<Staf> findByMbiemri(String mbiemri);
+	
+	@Query("Select s From Staf s Where qyteti like %?1%")
+	ArrayList<Staf> findByQyteti(String qyteti);
+
+	@Query("Select s From Staf s Where username = ?1")
+	ArrayList<Staf> findByUsername(String username);
+	
+	@Query("Select s From Staf s Where godina like %?1%")
+	ArrayList<Staf> findByGodina(String godina);
+	
+	@Query("Select s From Staf s Where zyra like %?1%")
+	ArrayList<Staf> findByZyra(String zyra);
+	
+	@Query("Select s From Staf s Where departamenti like %?1%")
+	ArrayList<Staf> findByDepartamenti(String departamenti);
+	
+	@Query("Select s From Staf s Where drejtoria like %?1%")
+	ArrayList<Staf> findByDrejtoria(String drejtoria);
+	
+	@Query("Select s From Staf s Where dega like %?1%")
+	ArrayList<Staf> findByDega(String dega);
+	
+	@Query("Select s From Staf s Where pozicioni like %?1%")
+	ArrayList<Staf> findByPozicioni(String pozicioni);
+	
+	@Query("Select s From Staf s Where nrZyre1 like %?1% or nrZyre2 like %?1%")
+	ArrayList<Staf> findByNrZyre(String nrZyre);
+	
+	@Query("Select s From Staf s Where nr6Shifra1 like %?1% or nr6Shifra2 like %?1%")
+	ArrayList<Staf> findByNr6Shifra(String nr6Shifra);
+	
+	@Query("Select s From Staf s Where nr41sh1 like %?1% or nr41sh2 like %?1%")
+	ArrayList<Staf> findByNr41sh(String nr41sh);
+	
+	@Query("Select s From Staf s Where nrPersonal1 like %?1% or nrPersonal2 like %?1%")
+	ArrayList<Staf> findByNrPersonal(String nrPersonal);
+	
+	@Query("Select s From Staf s Where nrVoIP1 like %?1% or nrVoIP2 like %?1%")
+	ArrayList<Staf> findByVoip(String voip);
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <title>Fatura</title>
+    <meta charset="UTF-8"/>
+	<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	
+	<form action="/logout" style="float: right;">
+		<button type="submit" class="logout-button button3">Dil</button>
+	</form>
+	
+	<form action="/homepageAdmin" style="float: right;">
+		<button type="submit" class="homepage-button button2">Homepage</button>
+	</form>
+	
+	<h1 class="staf-h">Kerko Faturat</h1>
+	
+	<div class="shto">
+		<form action="#" th:action="@{/kerkoFatura}" method="post">
+		
+			<label>Muaji</label>
+			<br />
+			<input type="text" name="muaji" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" value="1">
+			<br />
+			<label>Viti</label>
+			<br />
+			<input type="text" name="viti" maxlength="4" oninput="this.value=this.value.replace(/[^0-9]/g,'');" value="2019">
+			<br />
+			<label>Drejtoria</label>
+			<br />
+			<select name="drejtoria" >
+				<option  value=""> </option>
+				<option  value="Buxheti"> 																	Buxheti</option>
+				<option  value="Drejtoria Ekonomike dhe Administrimit (DE)">								Drejtoria Ekonomike dhe Administrimit (DE)</option>
+				<option  value="Drejtoria Juridike (DJ)">													Drejtoria Juridike (DJ)</option>
+				<option  value="Drejtoria e Arkivit (DA)">													Drejtoria e Arkivit (DA)</option>
+				<option  value="Drejtoria e Teknologjise se Informacionit (DTI)">							Drejtoria e Teknologjise se Informacionit (DTI)</option>
+				<option  value="Drejtoria e Administrimit dhe Sigurise se Burimeve Njerezore (DASBNJ)">		Drejtoria e Administrimit dhe Sigurise se Burimeve Njerezore (DASBNJ)</option>
+				<option  value="Drejtoria e Zhvillimit te Burimeve Njerezore (DZHBNJ)">						Drejtoria e Zhvillimit te Burimeve Njerezore (DZHBNJ)</option>
+				<option  value="Drejtoria e Marredhenieve dhe Partneritetit me Jashte (DMPJ)">				Drejtoria e Marredhenieve dhe Partneritetit me Jashte (DMPJ)</option>
+				<option  value="Drejtoria e Zhvillimit dhe Vleresimit dhe Nderveprimit (DZHVN)">			Drejtoria e Zhvillimit dhe Vleresimit dhe Nderveprimit (DZHVN)</option>
+				<option  value="Drejtoria Analize Sinteze (DASI)">											Drejtoria Analize Sinteze (DASI)</option>
+				<option  value="Drejtoria e Analizes se Kunder Zbulimit (DAKZ)">							Drejtoria e Analizes se Kunder Zbulimit (DAKZ)</option>
+				<option  value="Drejtoria e Pare e Kerkimit (DZBP)">										Drejtoria e Pare e Kerkimit (DZBP)</option>
+				<option  value="Drejtoria e Dyte e Kerkimit (DZBD)">										Drejtoria e Dyte e Kerkimit (DZBD)</option>
+				<option  value="Drejtoria Kunder Spiunazhit (DKS)">											Drejtoria Kunder Spiunazhit (DKS)</option>
+				<option  value="Drejtoria Kunder Krimit te Organizuar dhe Narkotikeve (DKKON)">				Drejtoria Kunder Krimit te Organizuar dhe Narkotikeve (DKKON)</option>
+				<option  value="Drejtoria Kunder Krimit Ekonomik dhe Korrupsionit (DKKKE)">					Drejtoria Kunder Krimit Ekonomik dhe Korrupsionit (DKKKE)</option>
+				<option  value="Drejtoria Kunder Terrorit dhe Sigurise se Brendshme (DKTSB)">				Drejtoria Kunder Terrorit dhe Sigurise se Brendshme (DKTSB)</option>
+				<option  value="Drejtoria e Operacioneve (DO)">												Drejtoria e Operacioneve (DO)</option>
+				<option  value="Drejtoria e Pergjimeve (DP)">												Drejtoria e Pergjimeve (DP)</option>
+				<option  value="Drejtoria e Sigurise se Objekteve (DSO)">									Drejtoria e Sigurise se Objekteve (DSO)</option>
+				
+				<option  value="Drejtoria e Tiranes">			Drejtoria e Tiranes</option>
+	       		<option  value="Drejtoria e Durresit">			Drejtoria e Durresit</option>
+	       		<option  value="Drejtoria e Shkodres">			Drejtoria e Shkodres</option>
+	       		<option  value="Drejtoria e Kukesit">			Drejtoria e Kukesit</option>
+	       		<option  value="Drejtoria e Peshkopise">		Drejtoria e Peshkopise</option>
+	       		<option  value="Drejtoria e Lezhes">			Drejtoria e Lezhes</option>
+	       		<option  value="Drejtoria e Elbasanit">			Drejtoria e Elbasanit</option>
+	       		<option  value="Drejtoria e Beratit">			Drejtoria e Beratit</option>
+	       		<option  value="Drejtoria e Korces">			Drejtoria e Korces</option>
+	       		<option  value="Drejtoria e Fierit">			Drejtoria e Fierit</option>
+	       		<option  value="Drejtoria e Lushnjes">			Drejtoria e Lushnjes</option>
+	       		<option  value="Drejtoria e Vlores">			Drejtoria e Vlores</option>
+	       		<option  value="Drejtoria e Gjirokastres">		Drejtoria e Gjirokastres</option>
+	       		<option  value="Drejtoria e Sarandes">			Drejtoria e Sarandes</option>
+			</select>
+			<br />
+			<button type="submit" class="search-button button2">Kerko</button>
+			<br>
+			<label th:text="${info}" th:unless="${info == ''}" style="color: red;"></label>
+		</form>
+	</div>
+	
+	<form action="/uploadFatura" class="fatura-form" style="margin-left: 35%;">
+		<button type="submit" class="fatura-button button1">Upload</button>
+	</form>
+	
+</body>
+</html>

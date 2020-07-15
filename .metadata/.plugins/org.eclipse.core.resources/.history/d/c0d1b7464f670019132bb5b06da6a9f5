@@ -1,0 +1,81 @@
+package staf;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+@EnableAutoConfiguration
+public class StafUI {
+	
+	StafManager stafManager;
+	
+	private ArrayList<String> teDhena = new ArrayList<String>();
+	private ArrayList<String> options = new ArrayList<String>();
+	private String option;
+	private String input;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(StafUI.class, args);
+	}
+	
+	@RequestMapping("/")
+	public void firstPage() throws Exception {
+		
+		teDhena = stafManager.getAlldata();
+		
+		String [] opt = 
+			{
+				"Emri Mbiemri",
+				"Godina",
+				"Dhoma",
+				"Drejtoria",
+				"Departamenti",
+				"Pozicioni",
+				"Numer Dhome",
+				"Numer 6 Shifra",
+				"Numer 41",
+				"Numer Personal" 
+			};
+		
+		options = (ArrayList<String>) Arrays.asList(opt);
+	}
+
+	public ArrayList<String> getTeDhena() {
+		return teDhena;
+	}
+
+	public void setTeDhena(ArrayList<String> teDhena) {
+		this.teDhena = teDhena;
+	}
+
+	public ArrayList<String> getOptions() {
+		return options;
+	}
+
+	public void setOptions(ArrayList<String> options) {
+		this.options = options;
+	}
+
+	public String getOption() {
+		return option;
+	}
+
+	public void setOption(String option) {
+		this.option = option;
+	}
+
+	public String getInput() {
+		return input;
+	}
+
+	public void setInput(String input) {
+		this.input = input;
+	}
+}

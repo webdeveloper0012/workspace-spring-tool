@@ -1,0 +1,88 @@
+package shish.stafi;
+
+import javax.naming.NamingException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.ldap.authentication.ad.ActiveDirectoryLdapAuthenticationProvider;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+/**
+ * @author enea.nako
+ *
+ */
+@Configuration
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter 
+{
+	private static final Logger log = LoggerFactory.getLogger(WebSecurityConfig.class);
+	
+	@Autowired(required=false)
+	private StafAuthenticationSuccessHandler successHandler;
+	
+	/**
+	 * mundeson kryerjen e login, logout, dhe lejon load file css, js, images, excels
+	 */
+	@Override
+	protected void configure(HttpSecurity http) throws Exception 
+	{
+		log.info("Method configure()");
+		
+		http
+			.authorizeRequests()
+			// lejon load file css, js, images, excels
+	        .antMatchers("/css/**","/js/**", "/images/**", "/excels/**", "/**").permitAll()
+	        .anyRequest().authenticated()
+	        .and()
+	        // hap faqen e login
+	        .formLogin()
+	        .loginPage("/login")
+	        .loginProcessingUrl("/login")
+	        // hap faqen pas successful login
+	        .successHandler(successHandler)
+	        // kalon parametri username nga faqja jone e krijuar
+	        .usernameParameter("username")
+	        // kalon parametri password nga faqja jone e krijuar
+	        .passwordParameter("password")
+	        .and()
+	        // ben te mundur logout
+	        .logout()
+	        .logoutUrl("/logout")
+	        // hap faqen login pasi ben logout
+			.logoutSuccessUrl("/login");
+	}
+	
+	/**
+	 * tregon path ku merren template per te hapur faqet e krijuara
+	 * @return, te gjitha templetet
+	 */
+	@Bean  
+	public InternalResourceViewResolver viewResolver() 
+	{  
+		log.info("Method viewResolver()");
+		
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();  
+		resolver.setPrefix("/templates/");  
+		resolver.setSuffix(".html");
+		
+		return resolver;
+	}
+	
+	/**
+	 * @return provider nga behet autentifikimi
+	 */
+	@Bean
+	public ActiveDirectoryLdapAuthenticationProvider activeDirectoryLdapAuthenticationProvider() 
+	{
+		log.info("Method activeDirectoryLdapAuthenticationProvider()");
+		
+		// vendosim add e domain dhe ldap nga merren user dhe behet autentifikimi
+		ActiveDirectoryLdapAuthenticationProvider activeDirectoryLdapAuthenticationProvider = new ActiveDirectoryLdapAuthenticationProvider("shish.gov.al", "ldap://shish.gov.al/");
+				
+		return activeDirectoryLdapAuthenticationProvider;
+	}
+	
+}

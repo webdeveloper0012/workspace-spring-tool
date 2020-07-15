@@ -1,0 +1,403 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+/* Heading section */
+.staf-h
+{
+	position: relative;
+	margin-top: 1%;
+    margin-left: 0;
+    font-size: 40px;
+	color: black;
+	text-align: center;
+	z-index: -10;
+}
+
+/* foto e shish */
+.logo
+{
+	width: 50%;
+	z-index: 1;
+}
+
+/* vija ndarese te login */
+.line
+{
+	position: relative;
+	margin-top: 1%;
+	z-index: -1;
+	border-top: 10px solid #141167; 
+	border-bottom: 10px solid #E68D1D;
+}
+
+/* login form */
+.login
+{
+	width: 50%;
+	position: relative;
+	margin-left: 40%;
+	margin-top: 0;
+}
+
+/* laber te login form */
+.login label
+{
+	color: #141167;
+	font-weight: bold;
+	font-size: 22px;
+	margin-right: 10px
+}
+
+/* input te login form */
+.login input
+{
+	width: 30%;
+	padding: 10px 20px;
+	margin: 20px 10px;
+	display: inline-block;
+	border: 2px solid #E68D1D;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+/* butoni te login form */
+.login button
+{
+	width: 150px;
+	height: 50px;
+	background-color: #141167;
+	border-radius: 10px;
+	border: 3px solid #D1D3D3;
+	color: #E68D1D;
+	padding: 10px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+/* text poshte login form */
+.copyright
+{
+	position: relative; 
+	margin-top: 5%;
+	text-align: center;
+}
+
+/* forma e kerkimit te homepage */
+.search-form
+{
+	position: relative;
+	margin-top: 10%;
+	margin-left: 25%;
+	padding: 0;
+}
+
+/* drop down te homepage */
+.select-value
+{
+	width: 150px;
+	height: 50px;
+	font-size: 25px;
+	background-color: #D1D3D3;
+	border-radius: 10px;
+	border: 3px solid #141167;
+	color: #141167;
+}
+
+/* input text te homepage */
+.search-text
+{
+	width: 500px;
+	height: 50px;
+	font-size: 25px;
+	font-style: italic;
+	color: #141167;
+	padding-left: 10px;
+	background-color: #D1D3D3;
+	border-radius: 30px;
+	border: 3px solid #141167;
+}
+
+/* placeholder te input text te homepage */
+.search-text::placeholder
+{
+	color: #E68D1D;
+	font-style: italic;
+}
+
+/* butoni kerko te homepage */
+.search-button
+{
+	width: 150px;
+	height: 50px;
+	background-color: #141167;
+	border-radius: 10px;
+	border: 3px solid #D1D3D3;
+	color: #E68D1D;
+	padding: 10px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+/* te gjithe check box te tabela me persona */
+.div-checkbox
+{
+	position: relative;
+	margin-top: 5%;
+	padding: 0;
+	width: 99%;
+}
+
+/* largesa midis njeri - tjetrit te check box */
+.css-checkbox
+{
+    margin-left: 2%;
+}
+
+/* ngjyra e label te check box */
+.css-label
+{
+	color: #E68D1D;
+}
+
+/* tabla per shshfaqjen e personave */
+.staf
+{
+	width: 100%;
+	position: relative;
+	margin-top: 1%;
+	border-collapse: collapse;
+}
+
+/* header e tabeles */
+.staf th
+{
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: #141167;
+	color: #E68D1D;
+	border: 3px solid #D1D3D3;
+}
+
+/* qelizat e tabeles */
+.staf td
+{
+	border: 1px solid #D1D3D3;
+	padding: 8px;
+}
+
+/* hover mbi rreshtat e tabeles */
+.staf tr:hover
+{
+	background-color: #D1D3D3;
+}
+
+/* dy butonat edit dhe delete te kolona e fundit e tabeles */
+.staf tr td a:link, .staf tr td a:visited
+{
+	background-color: #E68D1D;
+	color: #141167;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	border: 2px solid #141167;
+}
+
+/* dy butonat edit dhe delete te kolona e fundit e tabeles */
+.staf tr td a:hover, .staf tr td a:active
+{
+  background-color: #141167;
+  color: #D1D3D3;
+}
+
+/* forma per shtimin e personave te rinj */
+/* e njejta forme perdoret dhe per editimin e personave */
+.shto
+{
+	margin-left: 35%;
+}
+
+/* label te forma e shtimit / edit */
+.shto label
+{
+	color: #141167;
+	font-weight: bold;
+	font-size: 20px;
+	margin-right: 10px
+}
+
+/* label te forma e edit, emer dhe mbiemer */
+.shto label label
+{
+	color: #E68D1D;
+}
+
+/* input text dhe drop down te forma e shtimit / edit */
+.shto input, .shto select
+{
+	width: 35%;
+	padding: 10px 20px;
+	margin: 20px 10px;
+	font-size: 15px;
+	display: inline-block;
+	border: 1px solid #E68D1D;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+/* butoni te forma e edit, emer dhe mbiemer */
+.shto button
+{
+	width: 150px;
+	height: 50px;
+	background-color: #141167;
+	border-radius: 10px;
+	border: 3px solid #D1D3D3;
+	color: #E68D1D;
+	padding: 10px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+/* hover per buton */
+.button1:hover
+{
+	background-color: #E68D1D;
+	color: #141167;
+}
+
+/* hover per buton */
+.button2:hover
+{
+	background-color: #D1D3D3;
+	color: #141167;
+}
+
+/* hover per buton */
+.button3:hover
+{
+	background-color: #141167;
+	color: #D1D3D3;
+}
+
+.homepage-form
+{
+	position: relative;
+	margin-top: 5%;
+	margin-left: 40%;
+	padding: 0;
+}
+
+.homepage-button
+{
+	width: 150px;
+	height: 50px;
+	background-color: #141167;
+	border-radius: 10px;
+	border: 3px solid #D1D3D3;
+	color: #E68D1D;
+	padding: 10px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.shto-form
+{
+	position: relative;
+	margin-top: 5%;
+	margin-left: 40%;
+	padding: 0;
+}
+
+.shto-button
+{
+	width: 150px;
+	height: 50px;
+	background-color: #141167;
+	border-radius: 10px;
+	border: 3px solid #D1D3D3;
+	color: #E68D1D;
+	padding: 10px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.fatura-form
+{
+	position: relative;
+	margin-top: 5%;
+	margin-left: 40%;
+}
+
+.fatura-button
+{
+	width: 150px;
+	height: 50px;
+	background-color: #141167;
+	border-radius: 10px;
+	border: 3px solid #D1D3D3;
+	color: #E68D1D;
+	padding: 10px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.anullo-form
+{
+	position: relative;
+	margin-top: 5%;
+	margin-left: 35%;
+}
+
+.anullo-button
+{
+	width: 150px;
+	height: 50px;
+	background-color: #D1D3D3;
+	border-radius: 10px;
+	border: 3px solid #141167;
+	color: #E68D1D;
+	padding: 10px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.logout-form
+{
+	margin-top: -10%;
+    float: right;
+}
+
+.logout-button
+{
+	width: 150px;
+	height: 50px;
+	background-color: #D1D3D3;
+	border-radius: 10px;
+	border: 3px solid #141167;
+	color: #E68D1D;
+	padding: 10px 20px;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
